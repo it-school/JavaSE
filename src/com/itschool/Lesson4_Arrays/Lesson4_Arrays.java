@@ -5,7 +5,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Lesson
+public class Lesson4_Arrays
 {
 	private static Scanner scanner = new Scanner(System.in);
 	private static Random r = new Random();
