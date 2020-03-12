@@ -5,15 +5,15 @@ import java.util.Random;
 
 public class Lesson4_Arrays_Hometasks {
     public static void main(String[] args) {
-        task1();
+//        task1();
         task2();
-        task3();
-        task4();
-        task5();
-        task6();
-        task7();
-        task8();
-        task9();
+//        task3();
+//        task4();
+//        task5();
+//        task6();
+//        task7();
+//        task8();
+//        task9();
     }
 
     private static void task1() {
@@ -21,12 +21,11 @@ public class Lesson4_Arrays_Hometasks {
         int sum = 0;
         Random random = new Random();
         for (int i = 0; i < a.length; i++) {
-            a[i] = random.nextInt(50) * 100;
+            a[i] = random.nextInt(50) * 110;
             sum += a[i];
         }
         System.out.println(Arrays.toString(a));
-        System.out.println("Общее число книг " + sum);
-        System.out.println("Общее число книг есть 6 значное число = " + ((sum > 99999 && sum < 1000000) ? "Правда" : "Ложь"));
+        System.out.println("Общее число книг  " + sum + ((sum > 99999 && sum < 1000000) ? " " : "  НЕ") + " является 6-значным числом");
         System.out.println();
     }
 
@@ -35,10 +34,11 @@ public class Lesson4_Arrays_Hometasks {
         int sum = 0;
         Random random = new Random();
         for (int i = 0; i < a.length; i++) {
-            a[i] = random.nextInt(45);
+            a[i] = random.nextInt(44);
             sum += a[i];
         }
-        System.out.println(sum + ((sum > 200) ? " Спортсмен вышел в этап" : " Спортсмен не вышел в этап"));
+        System.out.println("Всего очков набрано: " + sum);
+        System.out.println("Спортсмен " + (sum < 200 ? "не " : "") + "вышел в следующий этап");
         System.out.println();
     }
 
@@ -49,11 +49,13 @@ public class Lesson4_Arrays_Hometasks {
         for (int i = 0; i < a.length; i++) {
             a[i] = random.nextInt(50);
         }
+
         for (int j = 0; j < a.length; j++) {
-            if (j >= 0 && j < 7) obz += a[j];
+            if (j < 7) obz += a[j];
             if (j > 6 && j < 13) kor += a[j];
-            if (j > 12 && j < a.length) pro += a[j];
+            if (j > 12) pro += a[j];
         }
+
         System.out.println("Обязательная " + obz);
         System.out.println("Короткая программа " + kor);
         System.out.println("Произвольная " + pro);
