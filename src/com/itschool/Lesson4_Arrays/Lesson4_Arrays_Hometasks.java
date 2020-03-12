@@ -3,9 +3,22 @@ package com.itschool.Lesson4_Arrays;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * Lesson4_Arrays_Hometasks
+ */
 public class Lesson4_Arrays_Hometasks
 {
-	public static void main(String[] args)
+	/**
+	 * Random number generator variable
+	 */
+	public static Random random = new Random();
+
+	/**
+	 * Main function
+	 *
+	 * @param args input arguments
+	 */
+	public static void main(final String[] args)
 	{
 		task1();
 		task2();
@@ -20,15 +33,16 @@ public class Lesson4_Arrays_Hometasks
 
 	private static void task1()
 	{
-		int[] a = new int[35];
+		int[] array = new int[35];
 		int sum = 0;
-		Random random = new Random();
-		for (int i = 0; i < a.length; i++) {
-			a[i] = random.nextInt(50) * 110;
-			sum += a[i];
+		for (int i = 0; i < array.length; i++) {
+			array[i] = random.nextInt(50) * 110;
+			sum += array[i];
 		}
-		System.out.println(Arrays.toString(a));
-		System.out.println("Общее число книг  " + sum + ((sum > 99999 && sum < 1000000) ? " " : "  НЕ") + " является 6-значным числом");
+		System.out.println(Arrays.toString(array));
+		System.out.println("Общее число книг  " + sum + (sum > 99_999 && sum < 1_000_000 ? " " : "  НЕ") + " является" +
+				" " +
+				"6-значным числом");
 		System.out.println();
 	}
 
@@ -37,7 +51,6 @@ public class Lesson4_Arrays_Hometasks
 		final int PASS_VALUE = 200;
 		int[] a = new int[10];
 		int sum = 0;
-		Random random = new Random();
 		for (int i = 0; i < a.length; i++) {
 			a[i] = random.nextInt(44);
 			sum += a[i];
@@ -49,17 +62,20 @@ public class Lesson4_Arrays_Hometasks
 
 	private static void task3()
 	{
+		final int FIRST_STAGE = 6;
+		final int SECOND_STAGE = 12;
 		int[] a = new int[18];
-		int obz = 0, kor = 0, pro = 0;
-		Random random = new Random();
+		int obz = 0;
+		int kor = 0;
+		int pro = 0;
 		for (int i = 0; i < a.length; i++) {
 			a[i] = random.nextInt(50);
 		}
 
 		for (int j = 0; j < a.length; j++) {
-			if (j < 7) { obz += a[j]; }
-			else if (j > 6 && j < 13) { kor += a[j]; }
-			else if (j > 12) { pro += a[j]; }
+			if (j <= FIRST_STAGE) { obz += a[j]; }
+			else if (j > FIRST_STAGE && j <= SECOND_STAGE) { kor += a[j]; }
+			else if (j > SECOND_STAGE) { pro += a[j]; }
 		}
 
 		System.out.println("Обязательная " + obz);
@@ -75,7 +91,6 @@ public class Lesson4_Arrays_Hometasks
 
 	private static void task4()
 	{
-		Random random = new Random();
 		int[] a = new int[50];
 		int cur = 0, max = 0;
 		for (int i = 0; i < a.length; i++) {
@@ -94,10 +109,11 @@ public class Lesson4_Arrays_Hometasks
 	private static void task5()
 	{
 		int[] a = new int[50];
-		Random random = new Random();
+		int sqrtLength;
 		for (int i = 0; i < a.length; i++) {
 			a[i] = random.nextInt(200);
-			for (int j = 2; j < Math.sqrt(a[i]); j++) {
+			sqrtLength = (int) Math.sqrt(a[i]);
+			for (int j = 2; j < sqrtLength; j++) {
 				if (a[i] % j == 0) {
 					//System.out.println(a[i] +" "+ j);
 					a[i] = 0;
@@ -113,7 +129,6 @@ public class Lesson4_Arrays_Hometasks
 	{
 		int[] a = new int[50];
 		int max = 0, min = 0;
-		Random random = new Random();
 		for (int i = 0; i < a.length; i++) {
 			a[i] = random.nextInt(45);
 		}
@@ -136,7 +151,6 @@ public class Lesson4_Arrays_Hometasks
 	{
 		int[] a = new int[20];
 		int b = 0;
-		Random random = new Random();
 		for (int i = 0; i < a.length; i++) {
 			a[i] = random.nextInt(10);
 		}
@@ -156,28 +170,25 @@ public class Lesson4_Arrays_Hometasks
 
 	private static void task8()
 	{
-		Random random = new Random();
-		int[] a = new int[50];
-		int b = 30, c = 10, d = 20;
-		for (int i = 0; i < a.length; i++) {
-			a[i] = -50 + random.nextInt(100);
+		int[] array = new int[50];
+		final int b = 30;
+		for (int i = 0; i < array.length; i++) {
+			array[i] = -50 + random.nextInt(100);
 		}
-		int n1 = 10, n2 = 20;
-		System.out.println(Arrays.toString(a));
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] < 0) { a[i] = 0; }
-			if (a[i] > b) { a[i] = 0; }
-			if (n1 <= n2 && n1 >= 0 && n2 < a.length && i >= n1 && i <= n2) { a[i] = 0; }
+		final int n1 = 10, n2 = 20;
+		System.out.println(Arrays.toString(array));
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] < 0) { array[i] = 0; }
+			if (array[i] > b) { array[i] = 0; }
+			if (n1 <= n2 && n1 >= 0 && n2 < array.length && i >= n1 && i <= n2) { array[i] = 0; }
 		}
-		System.out.println(Arrays.toString(a));
+		System.out.println(Arrays.toString(array));
 		System.out.println();
 	}
 
 	private static void task9()
 	{
-		Random random = new Random();
 		int[] array = new int[20];
-		int b = 30, c = 10, d = 20;
 		for (int i = 0; i < array.length; i++) {
 			array[i] = random.nextInt(100);
 		}
@@ -185,6 +196,14 @@ public class Lesson4_Arrays_Hometasks
 		int comparer = Integer.MAX_VALUE;
 		do {
 			isExists = false;
+			for (int element : array) {
+				if (element == comparer) {
+					isExists = true;
+					comparer--;
+					break;
+				}
+			}
+			/*
 			for (int i = 0; i < array.length; i++) {
 				if (array[i] == comparer) {
 					isExists = true;
@@ -192,6 +211,7 @@ public class Lesson4_Arrays_Hometasks
 					break;
 				}
 			}
+			*/
 		} while (isExists);
 
 		System.out.println(Arrays.toString(array));
@@ -204,9 +224,8 @@ public class Lesson4_Arrays_Hometasks
 		for (int i = 0; i < array.length - cntDel; i++) {
 			if (array[i] == comparer) {
 				cntDel++;
-				for (int j = i; j < array.length - cntDel; ) {
+				for (int j = i; j < array.length - cntDel; j++) {
 					array[j] = array[j + 1];
-					j++;
 				}
 				i--;
 			}
