@@ -1,3 +1,3 @@
 JavaSE course materials and source codes
 
-http://dl.paulinedate.com/course/view.php?id=5
+http://el.it-school.com.ua/course/view.php?id=8
